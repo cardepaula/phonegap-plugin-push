@@ -42,6 +42,18 @@ public class RejectedOrders {
     prefsEditor.apply();
   }
 
+  public void remove(String uid){
+    SharedPreferences prefs = mActivity.getPreferences(Context.MODE_PRIVATE);
+    SharedPreferences.Editor prefsEditor = prefs.edit();
+
+    String strRejectedOrders = prefs.getString(REJECTED_ORDERS, null);
+    ArrayList<String> rejectedOrders = new ArrayList<String>(Arrays.asList(strRejectedOrders.split(",")));
+    rejectedOrders.remove(uid);
+
+    prefsEditor.putString(REJECTED_ORDERS, TextUtils.join(",", rejectedOrders));
+    prefsEditor.apply();
+  }
+
   public boolean exists(String poolDateId){
     SharedPreferences prefs = mActivity.getPreferences(Context.MODE_PRIVATE);
 

@@ -15,8 +15,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.res.ResourcesCompat;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
@@ -45,7 +45,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
-import static android.support.v4.app.NotificationCompat.PRIORITY_MAX;
+import static androidx.core.app.NotificationCompat.PRIORITY_MAX;
 
 /**
  * Created by alvaro.menezes on 05/12/2017.
@@ -90,11 +90,15 @@ public class MatchActivity extends Activity implements PushConstants {
     mExtras = getIntent().getBundleExtra(NOTIFICATION_EXTRAS);
 
     try {
+      String action = mExtras.getString(ACTION);
       JSONObject jsonOrder = new JSONObject(mExtras.getString(MATCH_ORDER_DETAILS));
       final int orderId = jsonOrder.getInt("id");
       final String uid = jsonOrder.getString("uid");
-
+      
       if (mRejectedOrders.exists(uid)) {
+        if(action.equals("ORDER_CLEAR")){
+          mRejectedOrders.remove(uid);
+        }
         finish();
         return;
       }
