@@ -15,8 +15,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
-import androidx.core.app.NotificationCompat;
-import androidx.core.content.res.ResourcesCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
@@ -45,7 +45,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
-import static androidx.core.app.NotificationCompat.PRIORITY_MAX;
+import static android.support.v4.app.NotificationCompat.PRIORITY_MAX;
 
 /**
  * Created by alvaro.menezes on 05/12/2017.
