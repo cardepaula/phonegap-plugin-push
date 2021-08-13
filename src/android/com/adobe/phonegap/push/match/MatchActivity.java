@@ -90,11 +90,15 @@ public class MatchActivity extends Activity implements PushConstants {
     mExtras = getIntent().getBundleExtra(NOTIFICATION_EXTRAS);
 
     try {
+      String action = mExtras.getString(ACTION);
       JSONObject jsonOrder = new JSONObject(mExtras.getString(MATCH_ORDER_DETAILS));
       final int orderId = jsonOrder.getInt("id");
       final String uid = jsonOrder.getString("uid");
-
+      
       if (mRejectedOrders.exists(uid)) {
+        if(action.equals("ORDER_CLEAR")){
+          mRejectedOrders.remove(uid);
+        }
         finish();
         return;
       }

@@ -15,6 +15,7 @@ public interface PushConstants {
   public static final String SOUND_RINGTONE = "ringtone";
   public static final String VIBRATE = "vibrate";
   public static final String ACTIONS = "actions";
+  public static final String ACTION = "action";
   public static final String CALLBACK = "callback";
   public static final String ACTION_CALLBACK = "actionCallback";
   public static final String DRAWABLE = "drawable";
