@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="canceled_title_activity_fullscreen">Pedido BeeBee Cancelado</string>
+  <string name="canceled_placeholder">Seu pedido atual foi cancelado</string>
+  <string name="canceled_tip">Entre no app para voltar a receber novos fretes</string>
+  <string name="canceled_button_ok">Entendi</string>
+</resources>

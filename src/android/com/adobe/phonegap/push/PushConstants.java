@@ -104,6 +104,7 @@ public interface PushConstants {
   public static final String LIST_CHANNELS = "listChannels";
   public static final String CLEAR_NOTIFICATION = "clearNotification";
   public static final String MATCH_NOTIFICATION = "isMatch";
+  public static final String CANCELED_NOTIFICATION = "isCancel";
   public static final String MATCH_ORDER_DETAILS = "order";
   public static final String NOTIFICATION_EXTRAS = "NOTIFICATION_EXTRAS";
   public static final String SCHEDULED_NOTIFICATION = "isScheduledStart";

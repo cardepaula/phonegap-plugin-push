@@ -40,6 +40,7 @@ import com.adobe.phonegap.push.location.SphericalUtil;
 import com.adobe.phonegap.push.match.BeeBeeApiService;
 import com.adobe.phonegap.push.match.MatchActivity;
 import com.adobe.phonegap.push.scheduled.ScheduledActivity;
+import com.adobe.phonegap.push.canceled.CanceledActivity;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
@@ -199,6 +200,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       String titleKey = prefs.getString(TITLE_KEY, TITLE);
       String isMatch = extras.getString(MATCH_NOTIFICATION);
       String isScheduled = extras.getString(SCHEDULED_NOTIFICATION);
+      String isCanceled = extras.getString(CANCELED_NOTIFICATION);
       String isPing = extras.getString(PING_NOTIFICATION);
       
       extras = normalizeExtras(applicationContext, extras, messageKey, titleKey);
@@ -222,6 +224,10 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
         BeeBeeApiService mBeeBeeApiService = new BeeBeeApiService(applicationContext, 0, userToken, apiUrl);
 
         mBeeBeeApiService.pong();
+      }
+      // if we are in a canceled notification, show cancel alarm activity
+      else if ("1".equals(isCanceled)) {
+        CanceledActivity.startAlarm(this, extras);
       }
       // if we are in the foreground and forceShow is `false` only send data
       else if (!forceShow && PushPlugin.isInForeground()) {
