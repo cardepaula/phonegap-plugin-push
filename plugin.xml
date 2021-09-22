@@ -52,6 +52,16 @@
         android:noHistory="false"
         android:launchMode="singleInstance"
         android:taskAffinity="" />
+      <activity android:name="com.adobe.phonegap.push.canceled.CanceledActivity"
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:label="@string/canceled_title_activity_fullscreen"
+        android:theme="@style/FullscreenTheme"
+        android:immersive="true"
+        android:excludeFromRecents="true"
+        android:autoRemoveFromRecents="false"
+        android:noHistory="false"
+        android:launchMode="singleInstance"
+        android:taskAffinity="" />
       <receiver android:name="com.adobe.phonegap.push.BackgroundActionButtonHandler"/>
       <receiver android:name="com.adobe.phonegap.push.PushDismissedHandler"/>
       <service android:name="com.adobe.phonegap.push.FCMService">
