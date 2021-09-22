@@ -1,4 +1,4 @@
-package com.adobe.phonegap.push.scheduled;
+package com.adobe.phonegap.push.canceled;
 
 import android.app.Activity;
 import android.content.Context;
@@ -67,11 +67,11 @@ public class CanceledActivity extends Activity implements PushConstants {
     });
   }
 
-  private void setActivityValues(String scheduledTime) {
+  private void setActivityValues(String orderId) {
     SpannableStringBuilder canceledText;
 
     canceledText = new SpannableStringBuilder(
-      "Seu pedido #"+ canceledText +" foi cancelado");
+      "Seu pedido #"+ orderId +" foi cancelado");
 
     canceledText.setSpan(new StyleSpan(Typeface.BOLD), 18, 26,
       Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -115,7 +115,7 @@ public class CanceledActivity extends Activity implements PushConstants {
   }
 
   public static void startAlarm(Context context, Bundle extras) {
-    Intent intent = new Intent(context, ScheduledActivity.class);
+    Intent intent = new Intent(context, CanceledActivity.class);
     intent.putExtra(NOTIFICATION_EXTRAS, extras);
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
