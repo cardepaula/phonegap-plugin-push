@@ -36,11 +36,11 @@ public class CanceledActivity extends Activity implements PushConstants {
 
     mExtras = getIntent().getBundleExtra(NOTIFICATION_EXTRAS);
 
-    String title = mExtras.getString(TITLE);
+    String orderId = mExtras.getString(NOT_ID);
     Boolean alerts = "1".equals(mExtras.getString(SCHEDULED_ALERTS));
 
     setButtonEvents();
-    setActivityValues(title);
+    setActivityValues(orderId);
 
     if (alerts) {
       startAlerts();
@@ -67,10 +67,10 @@ public class CanceledActivity extends Activity implements PushConstants {
     });
   }
 
-  private void setActivityValues(String title) {
+  private void setActivityValues(String orderId) {
     SpannableStringBuilder canceledText;
 
-    canceledText = new SpannableStringBuilder(title +" foi cancelado");
+    canceledText = new SpannableStringBuilder("Ops! O cliente cancelou o frete #" + orderId + " :(");
 
     canceledText.setSpan(new StyleSpan(Typeface.BOLD), 0, canceledText.length(),
       Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
