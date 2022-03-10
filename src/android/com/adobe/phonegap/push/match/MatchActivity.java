@@ -308,7 +308,7 @@ public class MatchActivity extends Activity implements PushConstants {
   private void reject(final Context ctx, final int orderId, final String uid, BeeBeeApiService beeBeeApiService) {
     stopAlerts();
     mRejectedOrders.add(uid);
-    Toast.makeText(ctx, "Pedido rejeitado", Toast.LENGTH_SHORT).show();
+    Toast.makeText(ctx, "Pedido silenciado", Toast.LENGTH_SHORT).show();
 
     beeBeeApiService.reject(
       new Response.Listener<JSONObject>() {
