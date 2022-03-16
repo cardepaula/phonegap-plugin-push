@@ -51,7 +51,7 @@ public class SlideButton extends android.support.v7.widget.AppCompatSeekBar {
 
     if (progress < INITIAL_VALUE) {
       alpha = MAX - 2 * progress + 150;
-      text = progress < 0.35 * MAX ? "RECUSAR" : "";
+      text = progress < 0.35 * MAX ? "SILENCIAR" : "";
       textColor = Color.WHITE;
       bgColor = colorPrimary;
     }

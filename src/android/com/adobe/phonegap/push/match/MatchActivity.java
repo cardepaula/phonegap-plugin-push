@@ -169,7 +169,7 @@ public class MatchActivity extends Activity implements PushConstants {
         accept(ctx, orderId, mBeeBeeApiService);
       }
     });
-    builder.setNegativeButton("RECUSAR", new DialogInterface.OnClickListener() {
+    builder.setNegativeButton("SILENCIAR", new DialogInterface.OnClickListener() {
       public void onClick(DialogInterface dialog, int id) {
         // User cancelled the dialog
         reject(ctx, orderId, uid, mBeeBeeApiService);
