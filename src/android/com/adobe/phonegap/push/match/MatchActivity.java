@@ -64,6 +64,8 @@ public class MatchActivity extends Activity implements PushConstants {
   private String mScheduleDate = null;
   private boolean mIsScheduled = false;
 
+  private int FLAG_IMMUTABLE = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) ? PendingIntent.FLAG_IMMUTABLE : 0;
+
   enum OrderType {
     Unknown,
     StaticRoute,
@@ -94,7 +96,7 @@ public class MatchActivity extends Activity implements PushConstants {
       JSONObject jsonOrder = new JSONObject(mExtras.getString(MATCH_ORDER_DETAILS));
       final int orderId = jsonOrder.getInt("id");
       final String uid = jsonOrder.getString("uid");
-      
+
       if (mRejectedOrders.exists(uid)) {
         if(action.equals("ORDER_CLEAR")){
           mRejectedOrders.remove(uid);
@@ -265,7 +267,7 @@ public class MatchActivity extends Activity implements PushConstants {
     NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
     int requestCode = new Random().nextInt();
-    PendingIntent contentIntent = PendingIntent.getActivity(this, requestCode, getHandlerActivityIntent(notId, null, false), PendingIntent.FLAG_UPDATE_CURRENT);
+    PendingIntent contentIntent = PendingIntent.getActivity(this, requestCode, getHandlerActivityIntent(notId, null, false), PendingIntent.FLAG_UPDATE_CURRENT | FLAG_IMMUTABLE);
 
     NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
       .setWhen(System.currentTimeMillis())
